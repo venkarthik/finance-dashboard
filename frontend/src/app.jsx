@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
 
-import LoginPage     from './pages/LoginPage'
+import LoginPage     from './pages/LoginPage.jsx'
 import DashboardPage from './pages/DashboardPage'
 import RecordsPage   from './pages/RecordsPage'
 import UsersPage     from './pages/UsersPage'
