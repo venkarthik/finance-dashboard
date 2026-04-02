@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("🌱 Seeding database...");
+  console.log(" Seeding database...");
 
   const hashedPassword = await bcrypt.hash("password123", 10);
 
@@ -68,8 +68,8 @@ async function main() {
 
   await prisma.financialRecord.createMany({ data: records });
 
-  console.log("✅ Seed complete!");
-  console.log("\n📋 Default credentials:");
+  console.log(" Seed complete!");
+  console.log("\n Default credentials:");
   console.log("  Admin   → admin@finance.com    / password123");
   console.log("  Analyst → analyst@finance.com  / password123");
   console.log("  Viewer  → viewer@finance.com   / password123");
