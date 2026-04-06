@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
-
-import LoginPage     from './pages/LoginPage.jsx'
+import LoginPage     from './pages/LoginPage'
+import SignupPage    from './pages/SignupPage'
 import DashboardPage from './pages/DashboardPage'
 import RecordsPage   from './pages/RecordsPage'
 import UsersPage     from './pages/UsersPage'
@@ -19,7 +19,8 @@ const AppRoutes = () => {
   const { user } = useAuth()
   return (
     <Routes>
-      <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <LoginPage />} />
+      <Route path="/login"  element={user ? <Navigate to="/dashboard" replace /> : <LoginPage />} />
+      <Route path="/signup" element={user ? <Navigate to="/dashboard" replace /> : <SignupPage />} />
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
         <Route path="/dashboard" element={<DashboardPage />} />
