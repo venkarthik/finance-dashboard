@@ -3,8 +3,8 @@ import { useAuth } from '../context/AuthContext'
 
 const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: '▦' },
-  { to: '/records',   label: 'Records',   icon: '≡' },
-  { to: '/users',     label: 'Users',     icon: '◉', adminOnly: true },
+  { to: '/records', label: 'Records', icon: '≡' },
+  { to: '/users', label: 'Users', icon: '◉', adminOnly: true },
 ]
 
 export default function Layout() {
@@ -18,7 +18,7 @@ export default function Layout() {
       <aside className="w-60 flex flex-col border-r border-surface-border bg-surface-card shrink-0">
         <div className="px-6 py-5 border-b border-surface-border">
           <span className="font-display text-xl font-bold text-white tracking-tight">
-            Fin<span className="text-brand-500">Flow</span>
+            Zor<span className="text-brand-500">vyn</span>
           </span>
           <p className="text-xs text-slate-500 mt-0.5">Finance Dashboard</p>
         </div>
