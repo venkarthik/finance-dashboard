@@ -1,4 +1,4 @@
--- CreateTable
+
 CREATE TABLE "users" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
@@ -10,7 +10,6 @@ CREATE TABLE "users" (
     "updatedAt" DATETIME NOT NULL
 );
 
--- CreateTable
 CREATE TABLE "financial_records" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "amount" REAL NOT NULL,
@@ -25,5 +24,5 @@ CREATE TABLE "financial_records" (
     CONSTRAINT "financial_records_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
--- CreateIndex
+
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
