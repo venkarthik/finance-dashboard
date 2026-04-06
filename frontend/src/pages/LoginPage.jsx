@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
@@ -42,7 +42,9 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md animate-fadeIn relative">
         <div className="text-center mb-8">
-          <h1 className="font-display text-4xl font-bold text-white">Fin<span className="text-brand-500">Flow</span></h1>
+          <h1 className="font-display text-4xl font-bold text-white">
+            Fin<span className="text-brand-500">Flow</span>
+          </h1>
           <p className="text-slate-400 mt-2 text-sm">Sign in to your finance dashboard</p>
         </div>
 
@@ -50,17 +52,33 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="label">Email address</label>
-              <input type="email" className="input" placeholder="you@example.com"
-                value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <input
+                type="email"
+                className="input"
+                placeholder="you@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="••••••••"
-                value={password} onChange={(e) => setPassword(e.target.value)} required />
+              <input
+                type="password"
+                className="input"
+                placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
             </div>
+
             {error && (
-              <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-2.5">{error}</p>
+              <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-2.5">
+                {error}
+              </p>
             )}
+
             <button type="submit" disabled={loading} className="btn-primary w-full py-2.5 mt-2">
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
@@ -71,7 +89,9 @@ export default function LoginPage() {
           <p className="text-xs text-slate-500 mb-3 font-medium uppercase tracking-wider">Demo accounts</p>
           <div className="grid grid-cols-3 gap-2">
             {['admin', 'analyst', 'viewer'].map((role) => (
-              <button key={role} onClick={() => fillDemo(role)}
+              <button
+                key={role}
+                onClick={() => fillDemo(role)}
                 className="text-xs py-2 px-3 rounded-lg bg-surface-hover hover:bg-surface-border
                            border border-surface-border text-slate-400 hover:text-slate-200
                            transition-all duration-150 capitalize font-medium">
@@ -81,6 +101,14 @@ export default function LoginPage() {
           </div>
           <p className="text-xs text-slate-600 mt-2 text-center">Click a role to fill credentials</p>
         </div>
+
+        <p className="text-center text-sm text-slate-500 mt-4">
+          Don't have an account?{' '}
+          <Link to="/signup" className="text-brand-400 hover:text-brand-300 transition-colors font-medium">
+            Sign up
+          </Link>
+        </p>
+
       </div>
     </div>
   )

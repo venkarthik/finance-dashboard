@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import rateLimit from 'express-rate-limit'
 
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
@@ -10,6 +11,15 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import { notFound } from "./middleware/notFound.js";
 
 dotenv.config();
+
+
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100,                  // 100 requests per window
+  message: { success: false, message: 'Too many requests, please try again later.' }
+})
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -32,6 +42,7 @@ app.get("/api/health", (req, res) => {
 // Error Handlers
 app.use(notFound);
 app.use(errorHandler);
+app.use('/api', limiter)
 
 app.listen(PORT, () => {
   console.log(`\n Server running on http://localhost:${PORT}`);
