@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-// ─── Auth Schemas ─────────────────────────────────────────────
+// Auth Schemas
 export const registerSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -13,7 +13,7 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Password is required"),
 });
 
-// ─── User Schemas ─────────────────────────────────────────────
+// User Schemas 
 export const updateUserSchema = z.object({
   name: z.string().min(2).optional(),
   role: z.enum(["VIEWER", "ANALYST", "ADMIN"]).optional(),
@@ -25,7 +25,7 @@ export const changePasswordSchema = z.object({
   newPassword: z.string().min(6, "New password must be at least 6 characters"),
 });
 
-// ─── Financial Record Schemas ─────────────────────────────────
+// Financial Record Schemas 
 export const createRecordSchema = z.object({
   amount: z.number().positive("Amount must be a positive number"),
   type: z.enum(["INCOME", "EXPENSE"]),
